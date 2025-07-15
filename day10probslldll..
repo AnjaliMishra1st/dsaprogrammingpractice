@@ -1,0 +1,24 @@
+# Function to convert SLL to DLL
+def convert_sll_to_dll(sll_head):
+    dll = DoublyLinkedList()
+    current = sll_head
+    while current:
+        dll.append(current.data)
+        current = current.next
+    return dll
+
+
+# Create SLL and add elements
+sll = SinglyLinkedList()
+for num in [10, 20, 30, 40]:
+    sll.append(num)
+print("Singly Linked List:")
+sll.display()
+
+
+# Convert to DLL
+dll = convert_sll_to_dll(sll.head)
+print("Doubly Linked List (Forward):")
+dll.display_forward()
+print("Doubly Linked List (Backward):")
+dll.display_backward()

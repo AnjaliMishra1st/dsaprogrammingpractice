@@ -1,0 +1,47 @@
+// #Basic numpy array creation 
+import numpy as np     # Importing numpy module with alias np
+arr = np.array([1,2,3,4,5])     //#NumPy arrays are faster and more memory-efficient than Python lists.
+                               // perform vectorized operations(like addition multiplication)
+print(arr)
+
+//  Arrays with Special Values
+  zeros = np.zeros((2,2))     # 2x2 matrix of 0s
+ones = np.ones((2,2))       # 2x2 matrix of 1s
+const = np.full((2,2), 5)   # 2x2 matrix filled with 5s
+iden = np.eye(2)            # 2x2 Identity matrix (diagonal = 1)
+rndom = np.random.random((2,2))  # 2x2 matrix with random float values
+// Identity matrices are used in matrix multiplication, graph algorithms
+// zeros or ones are useful for initializing DP tables or graph adjacency matrices.
+
+  #Array Dimensions (0D, 1D, 2D, etc.)
+zerod = np.array(1)               # 0D array (scalar) // 0 (scalar, just a number
+oned = np.array([1, 1])           # 1D array (vector) // 1 (like [1, 2, 3], a list)
+twod = np.array([[1,2,3,4,5], 
+                 [1,2,3,4,5]])    # 2D array (matrix) //2 (matrix: rows × columns)
+multid = np.array([1,2,3,4,5], ndmin=5)  # 5D array  //5 (forces 5 dimensions)
+
+
+print(oned.ndim)     # 1   // 1D arrays → Useful in prefix sum, sliding window, etc.
+print(twod.ndim)     # 2   //2D arrays → Used in Dynamic Programming, Graph representations, Grids.
+print(zerod.ndim)    # 0
+print(multid.ndim)   # 5   //Higher dimensions → Used in Tensor operations
+
+ # Slicing in NumPy
+array[start:stop:step]  //syntax
+
+import numpy as np
+arr = np.array([10, 20, 30, 40, 50, 60])
+print(arr[1:4])      # Output: [20 30 40]
+print(arr[:3])       # Output: [10 20 30]
+print(arr[::2])      # Output: [10 30 50]
+
+ # Reshaping Arrays - reshape()
+arr = np.array([1, 2, 3, 4, 5, 6])
+reshaped = arr.reshape((2, 3))    //# 2 rows, 3 columns
+print(reshaped)
+  
+  
+  
+  
+  
+  
