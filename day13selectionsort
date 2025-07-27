@@ -1,0 +1,105 @@
+Example:      // min element from unsorted part
+Input: [64, 25, 12, 22, 11]
+
+Pass 1: [11, 25, 12, 22, 64]
+Pass 2: [11, 12, 25, 22, 64]
+Pass 3: [11, 12, 22, 25, 64]
+Pass 4: [11, 12, 22, 25, 64]
+
+#include <iostream>
+using namespace std;
+
+void selectionSort(int arr[], int n) {
+    int minIndex;
+
+    for (int i = 0; i < n - 1; i++) {
+        // Assume the minimum is the first element
+        minIndex = i;
+
+        // Check the rest of the array for a smaller element
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        // Swap the found minimum with the first unsorted element
+        if (minIndex != i) {
+            int temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
+}
+
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+int main() {
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    cout << "Original array: ";
+    printArray(arr, n);
+
+    selectionSort(arr, n);
+
+    cout << "Sorted array:   ";
+    printArray(arr, n);
+
+    return 0;
+}
+
+
+//Write a program in C++ to sort an array of n integers in ascending order using Selection Sort.
+//Also, print the position of minimum elements selected in each pass.
+
+#include <iostream>
+using namespace std;
+
+void selectionSortWithSteps(int arr[], int n) {
+    int minIndex;
+
+    for (int i = 0; i < n - 1; i++) {
+        minIndex = i;
+
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex])
+                minIndex = j;
+        }
+
+        if (minIndex != i) {
+            swap(arr[i], arr[minIndex]);
+        }
+
+        // Print current pass and min index
+        cout << "Pass " << i + 1 << ": Min at position " << minIndex << " → ";
+        for (int k = 0; k < n; k++) {
+            cout << arr[k] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Enter elements: ";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    selectionSortWithSteps(arr, n);
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+
+    return 0;
+}
