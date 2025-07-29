@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int findKthMissing(vector<int>& arr, int k) {
+    vector<int> missing; // to store missing numbers
+    int current = 1;     // start checking from number 1
+    int index = 0;       // position in the given array
+
+    // keep running the loop until we find k missing numbers
+    while (missing.size() < k) {
+        if (index < arr.size() && arr[index] == current) {
+            // if current number is present in array, skip it
+            index++;
+        } else {
+            // if current number is NOT in array, it is missing
+            missing.push_back(current);
+        }
+        current++; // check next number
+    }
+
+    // return the k-th missing number (0-based index)
+    return missing[k - 1];
+}
+
+int main() {
+    vector<int> arr = {2, 3, 4, 7, 11, 12};
+    int k = 5;
+
+    int result = findKthMissing(arr, k);
+    cout << "The " << k << "th missing number is: " << result << endl;
+
+    return 0;
+}
