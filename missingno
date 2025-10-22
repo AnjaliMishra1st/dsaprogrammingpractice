@@ -1,0 +1,57 @@
+“Find the missing number”
+Imagine you’re organizing a treasure hunt, but one clue (number) is missing from the sequence!
+Example: [1, 2, 4, 5] → the missing number is 3.
+
+We can compare the given sequence [1, 2, 4, 5] to a complete sequence [1, 2, 3, 4, 5].
+The missing number is the one that’s not in the original array. 
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    // Complete sequence
+    vector<int> complete_sequence = {1, 2, 3, 4, 5};
+
+    // Given array
+    vector<int> given_array = {1, 2, 4, 5};
+
+    // Loop to find the missing number
+    for (int num : complete_sequence) {
+        if (find(given_array.begin(), given_array.end(), num) == given_array.end()) {
+            cout << "Missing number: " << num << endl;
+            break;
+        }
+    }
+
+    return 0;
+}
+
+
+(* by maths method  *)
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    // Complete sequence size
+    int n = 5; // Largest number in the sequence
+    
+    // Given array
+    vector<int> given_array = {1, 2, 4, 5};
+    
+    // Step 1: Calculate sum of complete sequence
+    int complete_sum = (n * (n + 1)) / 2; // Using the formula
+    
+    // Step 2: Calculate sum of the given array
+    int given_sum = 0;
+    for (int num : given_array) {
+        given_sum += num;
+    }
+    
+    // Step 3: Find the missing number
+    int missing_number = complete_sum - given_sum;
+    
+    cout << "Missing number: " << missing_number << endl;
+
+    return 0;
+}
