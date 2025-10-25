@@ -41,7 +41,52 @@ reshaped = arr.reshape((2, 3))    //# 2 rows, 3 columns
 print(reshaped)
   
   
-  
+// largest and second largest element   
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int arr[] = {2,3,4,5,6,8};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int lar = int_min;
+    int sl = int_min;
+
+    for(int i=0; i<size; i++) {
+        if(arr[i] > lar) {
+            sl = lar;
+            lar = arr[i];
+
+        }else if (arr[i] > sl && arr[i] != lar){
+            sl = arr[i];
+
+        }
+    }
+    if (lar == int_min){
+        cout<<"no lar no: " << endl;
+
+    }else {
+        cout<<"sl no" <<lar << endl;
+
+    }
+    if (s_l == int_min) {
+        cout<<"no sl:"<<endl;
+
+    }else{
+        cout<<"sl"<<sl<<endl
+    }
+
+//     int max_num = arr[0];
+//     for(int i=1; i<size; i++){
+//         if(arr[i]>max_num){
+//             max_num = arr[i];
+
+//         }
+//     }
+// cout<<"the max no in the arr is:" << max_num << endl;
+return 0;
+
+}
   
   
   
