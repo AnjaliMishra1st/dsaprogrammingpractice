@@ -88,5 +88,43 @@ return 0;
 
 }
   
-  
+//Rajesh wants to add elements of two arrays and display the merged array.
+Help Rajesh by writing a program to take input for two arrays, add both array elements,
+and display the merged array.  
+
+// You are using GCC
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n1;
+    cin >> n1;
+    int arr1[200];
+    for(int i=0; i<n1; i++)
+    cin >> arr1[i];
+    
+    int n2;
+    cin >> n2;
+    
+    int arr2[200];
+    for(int i=0; i<n2; i++)
+    cin >> arr2[i];
+    
+    int maxSize = (n1 > n2) ? n1 : n2;
+    int merged[200];
+    
+    for(int i=0; i<maxSize; i++){
+        if(i<n1 && i<n2)
+            merged[i] = arr1[i] + arr2[i];
+        else if(i<n1)
+            merged[i] = arr1[i];
+        else 
+            merged[i] = arr2[i];
+      
+        
+    }
+        for(int i=0; i<maxSize; i++)
+        cout<<merged[i]<<" ";
+        return 0;
+}
   
