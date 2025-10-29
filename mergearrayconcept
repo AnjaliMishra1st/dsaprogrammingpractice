@@ -41,3 +41,42 @@ int main(){
     }
      return 0;
     }
+
+
+#In a library, there are two arrays representing different sections of books: one for fiction books and another for non-fiction books. 
+Combine these two arrays to create a unified catalog that lists all the books available in the library, regardless of genre.
+
+The first line of input contains an integer n, which represents the number of fiction books.
+The next n lines contain the titles of the fiction books.
+The next line contains an integer m, which represents the number of non-fiction books.
+The next m lines contain the titles of the non-fiction books.
+
+// You are using GCC
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n, m;
+    cin>>n;
+    cin.ignore();
+    
+    string book;
+    
+    for(int i=0; i<n; i++){
+        getline(cin , book);
+        cout<<book<<endl;
+        
+    }
+    
+    cin >> m;
+    cin.ignore();
+    for(int i=0; i<m; i++){
+        getline(cin, book);
+        cout<<book<<endl;
+        
+    }
+    return 0;
+}
+    
+    
+    
